@@ -29,6 +29,7 @@ nav {
   margin-bottom: 1.5em;
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
+  padding-right: 8rem;
 }
  
 nav a {
@@ -142,3 +143,4 @@ label.color-scheme {
 label.color-scheme select {
   font: inherit;
 }
+ 
