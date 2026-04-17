@@ -1,3 +1,6 @@
+
+Copy
+
 :root {
   --color-accent: oklch(65% 50% 250);
 }
@@ -29,7 +32,6 @@ nav {
   margin-bottom: 1.5em;
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
-  padding-right: 8rem;
 }
  
 nav a {
@@ -133,13 +135,12 @@ article header p {
  
 /* ── Dark mode switcher ── */
 label.color-scheme {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  margin-left: auto;
   font-size: 80%;
   font-family: inherit;
+  white-space: nowrap;
+  padding: 0.5em;
 }
- 
 label.color-scheme select {
   font: inherit;
 }
