@@ -1,12 +1,12 @@
 :root {
   --color-accent: oklch(65% 50% 250);
 }
- 
+
 html {
   accent-color: var(--color-accent);
   color-scheme: light dark;
 }
- 
+
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
@@ -14,16 +14,16 @@ body {
   padding-inline: 1em;
   position: relative;
 }
- 
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
- 
+
 h1 {
   font-size: 400%;
 }
- 
+
 nav {
   display: flex;
   margin-bottom: 1.5em;
@@ -31,7 +31,7 @@ nav {
   border-bottom: 1px solid var(--border-color);
   position: relative;
 }
- 
+
 nav a {
   flex: 1;
   text-decoration: none;
@@ -39,8 +39,18 @@ nav a {
   text-align: center;
   padding: 0.5em;
 }
- 
-/* ── Dark mode switcher ── */
+
+nav a.current {
+  border-bottom: 0.4em solid oklch(70% 3% 200);
+  padding-bottom: 0.1em;
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  padding-bottom: 0.1em;
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
 label.color-scheme {
   position: absolute;
   right: 0;
@@ -52,31 +62,24 @@ label.color-scheme {
   background: canvas;
   padding: 0.2em 0.4em;
 }
- 
-nav a.current {
-  border-bottom: 0.4em solid oklch(70% 3% 200);
-  padding-bottom: 0.1em;
+
+label.color-scheme select {
+  font: inherit;
 }
- 
-nav a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
-  padding-bottom: 0.1em;
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-}
- 
+
 form {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1em;
 }
- 
+
 form label {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
   align-items: center;
 }
- 
+
 form input,
 form textarea,
 form button {
@@ -84,67 +87,61 @@ form button {
   width: 100%;
   box-sizing: border-box;
 }
- 
+
 form button {
   grid-column: 1 / -1;
 }
- 
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
 }
- 
+
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
- 
+
 .projects article h2 {
   margin: 0;
 }
- 
+
 .projects article img {
   width: 100%;
 }
- 
-/* ── CV Styles ── */
+
 section {
   margin-block: 2em;
 }
- 
+
 section h2 {
   border-bottom: 2px solid var(--color-accent);
   padding-bottom: 0.25em;
   color: var(--color-accent);
 }
- 
+
 article {
   margin-block: 1.5em;
   padding: 1em;
   border-left: 3px solid oklch(from var(--color-accent) 85% 10% h);
   background-color: color-mix(in oklch, var(--color-accent), canvas 93%);
 }
- 
+
 article header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
- 
+
 article header h3 {
   margin: 0;
 }
- 
+
 article header p {
   color: oklch(50% 0% 0);
   font-size: 0.9em;
   margin: 0;
-}
- 
-/* ── Dark mode switcher ── */
-label.color-scheme select {
-  font: inherit;
 }
  
