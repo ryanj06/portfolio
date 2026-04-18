@@ -29,7 +29,6 @@ nav {
   margin-bottom: 1.5em;
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
-  position: relative;
 }
 
 nav a {
@@ -54,8 +53,7 @@ nav a:hover {
 label.color-scheme {
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0.5rem;
   font-size: 80%;
   font-family: inherit;
   white-space: nowrap;
