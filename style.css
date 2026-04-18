@@ -26,17 +26,31 @@ h1 {
  
 nav {
   display: flex;
-  align-items: center;
   margin-bottom: 1.5em;
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
+  position: relative;
 }
  
 nav a {
+  flex: 1;
   text-decoration: none;
   color: inherit;
   text-align: center;
-  padding: 0.5em 1em;
+  padding: 0.5em;
+}
+ 
+/* ── Dark mode switcher ── */
+label.color-scheme {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 80%;
+  font-family: inherit;
+  white-space: nowrap;
+  background: canvas;
+  padding: 0.2em 0.4em;
 }
  
 nav a.current {
@@ -130,14 +144,6 @@ article header p {
 }
  
 /* ── Dark mode switcher ── */
-label.color-scheme {
-  margin-left: auto;
-  font-size: 80%;
-  font-family: inherit;
-  white-space: nowrap;
-  padding: 0.5em;
-}
- 
 label.color-scheme select {
   font: inherit;
 }
