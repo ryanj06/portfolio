@@ -53,8 +53,8 @@ nav a:hover {
 
 label.color-scheme {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.3rem;
+  right: 0.5rem;
   font-size: 80%;
   font-family: inherit;
   white-space: nowrap;
