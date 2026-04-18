@@ -12,7 +12,6 @@ body {
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding-inline: 1em;
-  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,6 +25,7 @@ h1 {
 
 nav {
   display: flex;
+  align-items: center;
   margin-bottom: 1.5em;
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
@@ -51,14 +51,12 @@ nav a:hover {
 }
 
 label.color-scheme {
-  position: absolute;
-  right: 0;
-  top: 0.5rem;
+  margin-left: auto;
   font-size: 80%;
   font-family: inherit;
   white-space: nowrap;
-  background: canvas;
-  padding: 0.2em 0.4em;
+  padding: 0.5em;
+  flex-shrink: 0;
 }
 
 label.color-scheme select {

@@ -4,13 +4,11 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// ── Base path (works locally and on GitHub Pages) ──
 const BASE_PATH =
   location.hostname === "localhost" || location.hostname === "127.0.0.1"
     ? "/"
     : "/portfolio/";
 
-// ── Step 3: Automatic navigation menu ──
 let pages = [
   { url: "", title: "Home" },
   { url: "projects/", title: "Projects" },
@@ -46,11 +44,9 @@ for (let p of pages) {
   nav.append(a);
 }
 
-// ── Step 4: Dark mode switch ──
-document.body.insertAdjacentHTML(
-  "afterbegin",
-  `
-  <label class="color-scheme">
+nav.insertAdjacentHTML(
+  "beforeend",
+  `<label class="color-scheme">
     Theme:
     <select>
       <option value="light dark">Automatic</option>
@@ -76,18 +72,13 @@ function setColorScheme(colorScheme) {
   select.value = colorScheme;
 }
 
-// ── Step 5: Better contact form ──
 const form = document.querySelector("form");
 form?.addEventListener("submit", function (event) {
   event.preventDefault();
-
   const data = new FormData(form);
   let params = [];
-
   for (let [name, value] of data) {
     params.push(`${name}=${encodeURIComponent(value)}`);
   }
-
-  const url = form.action + "?" + params.join("&");
-  location.href = url;
+  location.href = form.action + "?" + params.join("&");
 });
