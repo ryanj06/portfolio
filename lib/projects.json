@@ -1,0 +1,74 @@
+[
+  {
+    "title": "NBA Player Prop Predictor",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Built an end-to-end AI-powered app predicting NBA player prop outcomes using XGBoost, trained on 27,000+ player-game rows. Engineered 20 contextual features and deployed on Streamlit with automated daily retraining via GitHub Actions."
+  },
+  {
+    "title": "Power Outage Duration Prediction",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Analyzed 1,534 U.S. power outages with EDA, hypothesis testing, and missingness analysis. Built a scikit-learn Pipeline with Random Forest regression, reducing RMSE by 716 minutes over baseline."
+  },
+  {
+    "title": "Custom DataFrame Library in Java",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Designed pandas-inspired DataFrame and Series classes for structured data manipulation. Built a generic Binary Search Tree and integrated a hash table for fast key-based access."
+  },
+  {
+    "title": "TKE Budget Automation Pipeline",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Developed a Python automation pipeline using pandas to identify unpaid member balances and manage a $70,000 operating budget for Tau Kappa Epsilon at UC San Diego."
+  },
+  {
+    "title": "Financial Analytics Dashboard",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Built interactive Excel dashboards at Prime CPAS LLC to track income, expenses, and anomalies. Standardized 500+ client records, reducing data processing time by 25%."
+  },
+  {
+    "title": "Lorem ipsum dolor sit amet",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos quod assumenda explicabo odio nobis ipsa laudantium quas eum veritatis ullam sint porro."
+  },
+  {
+    "title": "Consectetur adipisicing elit",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos quod assumenda explicabo odio nobis ipsa laudantium quas eum veritatis ullam sint porro."
+  },
+  {
+    "title": "Magnam dolor quos quod",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos quod assumenda explicabo odio nobis ipsa laudantium quas eum veritatis ullam sint porro."
+  },
+  {
+    "title": "Assumenda explicabo odio nobis",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos quod assumenda explicabo odio nobis ipsa laudantium quas eum veritatis ullam sint porro."
+  },
+  {
+    "title": "Ipsa laudantium quas eum",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos quod assumenda explicabo odio nobis ipsa laudantium quas eum veritatis ullam sint porro."
+  },
+  {
+    "title": "Veritatis ullam sint porro",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos quod assumenda explicabo odio nobis ipsa laudantium quas eum veritatis ullam sint porro."
+  },
+  {
+    "title": "Minima modi molestias doloribus",
+    "year": "2023",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos quod assumenda explicabo odio nobis ipsa laudantium quas eum veritatis ullam sint porro."
+  }
+]
