@@ -1,12 +1,12 @@
 :root {
   --color-accent: oklch(65% 50% 250);
 }
- 
+
 html {
   accent-color: var(--color-accent);
   color-scheme: light dark;
 }
- 
+
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
@@ -14,16 +14,16 @@ body {
   padding-inline: 1em;
   position: relative;
 }
- 
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
- 
+
 h1 {
   font-size: 400%;
 }
- 
+
 nav {
   display: flex;
   margin-bottom: 1.5em;
@@ -31,7 +31,7 @@ nav {
   border-bottom: 1px solid var(--border-color);
   padding-right: 7rem;
 }
- 
+
 nav a {
   flex: 1;
   text-decoration: none;
@@ -39,18 +39,18 @@ nav a {
   text-align: center;
   padding: 0.5em;
 }
- 
+
 nav a.current {
   border-bottom: 0.4em solid oklch(70% 3% 200);
   padding-bottom: 0.1em;
 }
- 
+
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
- 
+
 label.color-scheme {
   position: absolute;
   top: 0.3rem;
@@ -59,24 +59,24 @@ label.color-scheme {
   font-family: inherit;
   white-space: nowrap;
 }
- 
+
 label.color-scheme select {
   font: inherit;
 }
- 
+
 form {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1em;
 }
- 
+
 form label {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
   align-items: center;
 }
- 
+
 form input,
 form textarea,
 form button {
@@ -84,65 +84,64 @@ form button {
   width: 100%;
   box-sizing: border-box;
 }
- 
+
 form button {
   grid-column: 1 / -1;
 }
- 
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
 }
- 
+
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
- 
+
 .projects article h2 {
   margin: 0;
 }
- 
+
 .projects article img {
   width: 100%;
 }
- 
+
 section {
   margin-block: 2em;
 }
- 
+
 section h2 {
   border-bottom: 2px solid var(--color-accent);
   padding-bottom: 0.25em;
   color: var(--color-accent);
 }
- 
+
 article {
   margin-block: 1.5em;
   padding: 1em;
   border-left: 3px solid oklch(from var(--color-accent) 85% 10% h);
   background-color: color-mix(in oklch, var(--color-accent), canvas 93%);
 }
- 
+
 article header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
- 
+
 article header h3 {
   margin: 0;
 }
- 
+
 article header p {
   color: oklch(50% 0% 0);
   font-size: 0.9em;
   margin: 0;
 }
- 
-/* ── GitHub Stats ────────────────────────────────────────────────── */
+
 #profile-stats {
   background-color: color-mix(in oklch, var(--color-accent), canvas 90%);
   border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
@@ -151,26 +150,26 @@ article header p {
   margin-block: 2em;
   max-width: 40ch;
 }
- 
+
 #profile-stats h2 {
   margin-top: 0;
   font-size: 1.1em;
   color: var(--color-accent);
 }
- 
+
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.25em 1em;
   margin: 0;
 }
- 
+
 #profile-stats dt {
   grid-row: 1;
   font-size: 0.8em;
   color: oklch(50% 0% 0);
 }
- 
+
 #profile-stats dd {
   grid-row: 2;
   font-size: 1.6em;
@@ -178,11 +177,78 @@ article header p {
   margin: 0;
   color: var(--color-accent);
 }
- 
-/* ── Project year badge ──────────────────────────────────────────── */
+
 .project-year {
-  font-size: 0.8em;
-  color: oklch(55% 5% 200);
-  margin: 0;
+  font-family: Baskerville, serif;
+  font-variant-numeric: oldstyle-nums;
+  font-size: 0.95em;
+  color: gray;
+  margin: 0.25em 0 0;
 }
- 
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+}
+
+#projects-pie-plot path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin-block: 2em;
+}
+
+.legend {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.5em;
+  list-style: none;
+  padding: 1em;
+  margin: 0;
+  border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
+  border-radius: 0.5em;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.swatch {
+  display: inline-block;
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 50%;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 0.5em 0.75em;
+  margin-block: 1em;
+  font: inherit;
+  border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
+  border-radius: 0.5em;
+  box-sizing: border-box;
+}
