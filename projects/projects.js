@@ -1,7 +1,7 @@
 import { fetchJSON, renderProjects } from "../global.js";
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
-const projects = await fetchJSON("../lib/projects.json");
+const projects = (await fetchJSON("../lib/projects.json")) || [];
 
 const titleEl = document.querySelector(".projects-title");
 if (titleEl) {
@@ -27,16 +27,18 @@ function renderPieChart(projectsGiven) {
   );
 
   currentData = rolledData
-    .map(([year, count]) => ({ value: count, label: year }))
+    .map(([year, count]) => ({ value: count, label: String(year) }))
     .sort((a, b) => b.label.localeCompare(a.label));
-
-  const arcData = sliceGenerator(currentData);
-  const arcs = arcData.map((d) => arcGenerator(d));
 
   const svg = d3.select("#projects-pie-plot");
   svg.selectAll("path").remove();
   const legend = d3.select(".legend");
   legend.selectAll("li").remove();
+
+  if (currentData.length === 0) return;
+
+  const arcData = sliceGenerator(currentData);
+  const arcs = arcData.map((d) => arcGenerator(d));
 
   arcs.forEach((arc, i) => {
     svg
@@ -73,7 +75,7 @@ function applyFilters() {
 
   if (selectedIndex !== -1 && currentData[selectedIndex]) {
     const selectedYear = currentData[selectedIndex].label;
-    filtered = filtered.filter((p) => p.year === selectedYear);
+    filtered = filtered.filter((p) => String(p.year) === selectedYear);
   }
 
   renderProjects(filtered, projectsContainer, "h2");

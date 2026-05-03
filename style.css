@@ -99,6 +99,10 @@ form button {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
+  margin-block: 0;
+  padding: 1em;
+  border-left: 3px solid oklch(from var(--color-accent) 85% 10% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 93%);
 }
 
 .projects article h2 {
@@ -186,9 +190,17 @@ article header p {
   margin: 0.25em 0 0;
 }
 
-#projects-pie-plot {
-  max-width: 20em;
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
   margin-block: 2em;
+}
+
+#projects-pie-plot {
+  flex-shrink: 0;
+  max-width: 20em;
+  width: 20em;
   overflow: visible;
 }
 
@@ -207,13 +219,6 @@ article header p {
 
 .selected:is(path) {
   fill: var(--color);
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  gap: 2em;
-  margin-block: 2em;
 }
 
 .legend {
