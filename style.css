@@ -257,3 +257,103 @@ article header p {
   border-radius: 0.5em;
   box-sizing: border-box;
 }
+
+dl.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  gap: 0.5em 1.5em;
+  background-color: color-mix(in oklch, var(--color-accent), canvas 90%);
+  border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
+  border-radius: 0.5em;
+  padding: 1em 1.5em;
+  margin-block: 1.5em;
+}
+
+dl.stats dt {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: oklch(50% 0% 0);
+  margin: 0;
+}
+
+dl.stats dd {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0;
+  color: var(--color-accent);
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25em 1em;
+  margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  font-size: 0.8em;
+  color: oklch(50% 0% 0);
+  margin: 0;
+}
+
+dl.info dd {
+  margin: 0;
+  font-weight: bold;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: color-mix(in oklch, canvas 85%, transparent);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 20px oklch(0% 0% 0 / 15%);
+  border-radius: 0.5em;
+  border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
+  padding: 0.75em 1em;
+  z-index: 100;
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+.gridlines line {
+  stroke: oklch(50% 0% 0 / 15%);
+}
+
+.gridlines path {
+  display: none;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}

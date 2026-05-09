@@ -1,3 +1,6 @@
+
+Copy
+
 console.log("IT'S ALIVE!");
  
 function $$(selector, context = document) {
@@ -14,6 +17,7 @@ let pages = [
   { url: "projects/", title: "Projects" },
   { url: "contact/", title: "Contact" },
   { url: "cv/", title: "CV" },
+  { url: "meta/", title: "Meta" },
   { url: "https://github.com/ryanj06", title: "GitHub" },
 ];
  
@@ -83,7 +87,6 @@ form?.addEventListener("submit", function (event) {
   location.href = form.action + "?" + params.join("&");
 });
  
-// ── Step 1.2: Fetch JSON from a URL ──────────────────────────────────────────
 export async function fetchJSON(url) {
   try {
     const response = await fetch(url);
@@ -97,7 +100,6 @@ export async function fetchJSON(url) {
   }
 }
  
-// ── Step 1.4: Render projects into a container element ────────────────────────
 export function renderProjects(projects, containerElement, headingLevel = "h2") {
   containerElement.innerHTML = "";
  
@@ -113,7 +115,6 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
   }
 }
  
-// ── Step 3.2: Fetch GitHub profile data ──────────────────────────────────────
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
