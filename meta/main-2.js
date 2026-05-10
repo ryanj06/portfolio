@@ -43,6 +43,7 @@ function processCommits(data) {
 
 // ── Step 1.3: Display stats ───────────────────────────────────────────────────
 function renderCommitInfo(data, commits) {
+  d3.select('#stats').append('h2').text('Summary');
   const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
   dl.append('dt').text('Total commits');
