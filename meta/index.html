@@ -12,14 +12,29 @@
     <h1>Meta</h1>
     <p>Stats about the code behind this website.</p>
 
+    <div class="time-filter">
+      <label>
+        Show commits until:
+        <input type="range" id="commit-progress" min="0" max="100" value="100" />
+        <time id="commit-time"></time>
+      </label>
+    </div>
+
     <div id="stats"></div>
 
     <h2>Commits by time of day</h2>
-    <div id="chart"></div>
 
-    <dl id="commit-tooltip" class="info tooltip" hidden></dl>
+    <div id="scrolly-1">
+      <div id="scatter-story"></div>
+      <div id="scatter-plot">
+        <div id="chart"></div>
+        <dl id="commit-tooltip" class="info tooltip" hidden></dl>
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
+      </div>
+    </div>
 
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
+    <h2>The race for the biggest file</h2>
+    <dl id="files"></dl>
   </body>
 </html>

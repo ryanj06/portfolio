@@ -1,18 +1,18 @@
+/* ── Root / Theme ──────────────────────────────────────────────────────────── */
 :root {
   --color-accent: oklch(65% 50% 250);
 }
 
 html {
   accent-color: var(--color-accent);
-  color-scheme: light dark;
 }
 
+/* ── Base ──────────────────────────────────────────────────────────────────── */
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding-inline: 1em;
-  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,12 +24,11 @@ h1 {
   font-size: 400%;
 }
 
+/* ── Nav ───────────────────────────────────────────────────────────────────── */
 nav {
   display: flex;
   margin-bottom: 1.5em;
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom: 1px solid var(--border-color);
-  padding-right: 7rem;
+  border-bottom: 1px solid oklch(80% 3% 200);
 }
 
 nav a {
@@ -48,22 +47,10 @@ nav a.current {
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
 }
 
-label.color-scheme {
-  position: absolute;
-  top: 0.3rem;
-  right: 0.5rem;
-  font-size: 80%;
-  font-family: inherit;
-  white-space: nowrap;
-}
-
-label.color-scheme select {
-  font: inherit;
-}
-
+/* ── Contact form ──────────────────────────────────────────────────────────── */
 form {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -89,6 +76,7 @@ form button {
   grid-column: 1 / -1;
 }
 
+/* ── Projects grid ─────────────────────────────────────────────────────────── */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -99,10 +87,6 @@ form button {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  margin-block: 0;
-  padding: 1em;
-  border-left: 3px solid oklch(from var(--color-accent) 85% 10% h);
-  background-color: color-mix(in oklch, var(--color-accent), canvas 93%);
 }
 
 .projects article h2 {
@@ -113,6 +97,7 @@ form button {
   width: 100%;
 }
 
+/* ── CV ────────────────────────────────────────────────────────────────────── */
 section {
   margin-block: 2em;
 }
@@ -120,14 +105,6 @@ section {
 section h2 {
   border-bottom: 2px solid var(--color-accent);
   padding-bottom: 0.25em;
-  color: var(--color-accent);
-}
-
-article {
-  margin-block: 1.5em;
-  padding: 1em;
-  border-left: 3px solid oklch(from var(--color-accent) 85% 10% h);
-  background-color: color-mix(in oklch, var(--color-accent), canvas 93%);
 }
 
 article header {
@@ -136,128 +113,12 @@ article header {
   align-items: baseline;
 }
 
-article header h3 {
-  margin: 0;
-}
-
 article header p {
   color: oklch(50% 0% 0);
   font-size: 0.9em;
-  margin: 0;
 }
 
-#profile-stats {
-  background-color: color-mix(in oklch, var(--color-accent), canvas 90%);
-  border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
-  border-radius: 0.5em;
-  padding: 1em 1.5em;
-  margin-block: 2em;
-  max-width: 40ch;
-}
-
-#profile-stats h2 {
-  margin-top: 0;
-  font-size: 1.1em;
-  color: var(--color-accent);
-}
-
-#profile-stats dl {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.25em 1em;
-  margin: 0;
-}
-
-#profile-stats dt {
-  grid-row: 1;
-  font-size: 0.8em;
-  color: oklch(50% 0% 0);
-}
-
-#profile-stats dd {
-  grid-row: 2;
-  font-size: 1.6em;
-  font-weight: bold;
-  margin: 0;
-  color: var(--color-accent);
-}
-
-.project-year {
-  font-family: Baskerville, serif;
-  font-variant-numeric: oldstyle-nums;
-  font-size: 0.95em;
-  color: gray;
-  margin: 0.25em 0 0;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  gap: 2em;
-  margin-block: 2em;
-}
-
-#projects-pie-plot {
-  flex-shrink: 0;
-  max-width: 20em;
-  width: 20em;
-  overflow: visible;
-}
-
-#projects-pie-plot path {
-  transition: 300ms;
-  cursor: pointer;
-}
-
-#projects-pie-plot:has(path:hover) path:not(:hover) {
-  opacity: 0.5;
-}
-
-.selected {
-  --color: oklch(60% 45% 0) !important;
-}
-
-.selected:is(path) {
-  fill: var(--color);
-}
-
-.legend {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
-  gap: 0.5em;
-  list-style: none;
-  padding: 1em;
-  margin: 0;
-  border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
-  border-radius: 0.5em;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  cursor: pointer;
-}
-
-.swatch {
-  display: inline-block;
-  width: 1em;
-  aspect-ratio: 1 / 1;
-  background-color: var(--color);
-  border-radius: 50%;
-}
-
-.searchBar {
-  width: 100%;
-  padding: 0.5em 0.75em;
-  margin-block: 1em;
-  font: inherit;
-  border: 1px solid color-mix(in oklch, var(--color-accent), canvas 60%);
-  border-radius: 0.5em;
-  box-sizing: border-box;
-}
-
+/* ── Meta stats grid ───────────────────────────────────────────────────────── */
 dl.stats {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
@@ -284,6 +145,7 @@ dl.stats dd {
   color: var(--color-accent);
 }
 
+/* ── Tooltip ───────────────────────────────────────────────────────────────── */
 dl.info {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -322,10 +184,15 @@ dl.info[hidden]:not(:hover, :focus-within) {
   z-index: 100;
 }
 
+/* ── Scatterplot circles ───────────────────────────────────────────────────── */
 circle {
-  transition: 200ms;
+  transition: all 200ms, r calc(var(--r, 2) * 40ms);
   transform-origin: center;
   transform-box: fill-box;
+
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -336,6 +203,7 @@ circle.selected {
   fill: #ff6b6b;
 }
 
+/* ── Gridlines ─────────────────────────────────────────────────────────────── */
 .gridlines line {
   stroke: oklch(50% 0% 0 / 15%);
 }
@@ -344,6 +212,7 @@ circle.selected {
   display: none;
 }
 
+/* ── Brush / marching ants ─────────────────────────────────────────────────── */
 @keyframes marching-ants {
   to {
     stroke-dashoffset: -8;
@@ -356,4 +225,113 @@ circle.selected {
   stroke-opacity: 0.7;
   stroke-dasharray: 5 3;
   animation: marching-ants 2s linear infinite;
+}
+
+/* ── Time slider ───────────────────────────────────────────────────────────── */
+.time-filter {
+  margin-block: 1rem 2rem;
+}
+
+.time-filter label {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+#commit-progress {
+  flex: 1;
+}
+
+#commit-time {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 0.9em;
+  color: oklch(50% 0% 0);
+}
+
+/* ── Scrollytelling layout ─────────────────────────────────────────────────── */
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+/* ── Story steps ───────────────────────────────────────────────────────────── */
+.step {
+  min-height: 85vh;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 0.25rem solid var(--color-accent);
+  background: color-mix(in oklch, var(--color-accent), canvas 93%);
+  border-radius: 0.5rem;
+}
+
+/* ── Chart SVG sizing ──────────────────────────────────────────────────────── */
+#chart svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ── Files / unit visualization ────────────────────────────────────────────── */
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 0.5em 1em;
+}
+
+#files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  padding-block: 0.4em;
+  border-bottom: 1px solid color-mix(in oklch, var(--color-accent), canvas 75%);
+}
+
+#files dt {
+  grid-column: 1;
+  overflow-wrap: anywhere;
+}
+
+#files dt small {
+  display: block;
+  opacity: 0.65;
+  font-size: 0.8em;
+  margin-top: 0.2em;
+}
+
+#files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.25em;
+  margin-left: 0;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color);
 }
